@@ -1,4 +1,4 @@
-import pyserial
+import serial
 
 class FeatureNotAvailableError(Exception):
         '''
@@ -43,7 +43,7 @@ class BaseDriver(object):
                 self.setid = setid
                 self.serial = serial.Serial(devaddr, baudrate=baudrate, timeout=timeout)
 
-        def _write(self, msg, expectresponse=False):
+        def _write(self, msg, expectresponse=True):
                 '''
                 Write data to TX. If L{expectresponse} is C{True}, 
                 then expect a response too.
@@ -64,4 +64,10 @@ class BaseDriver(object):
                 @param datalen: The amount of bytes to expect (or timeout)
                 '''
                 return self.serial.read(datalen)
+
+        def close(self):
+            '''
+            close the serial connection
+            '''
+            self.serial.close()
                 
