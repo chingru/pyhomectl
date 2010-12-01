@@ -1,0 +1,22 @@
+
+How to install pylgtv
+=====================
+
+1. Prereqs
+----------
+
+Make sure you have pyserial installed. The easiest way to check is to start a terminal:
+
+$ python
+> import serial
+
+If you get an error about loading 'serial', then you need to install pyserial.
+You can install it from source via pyserial.org or with setuptools:
+
+sudo easy_install pyserial
+
+2. Install pylgtv
+-----------------
+
+python setup.py install
+
