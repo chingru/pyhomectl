@@ -31,7 +31,7 @@ class BaseDriver(object):
                 has a set id to prevent commands going to multiple devices.
 
         @type  baudrate: int        
-        @param baudrate: (default 9200) the baudrate of the device.
+        @param baudrate: (default 9600) the baudrate of the device.
 
         @type  devaddr: str
         @param devaddr: (default /dev/ttyUSB0) the device address.
@@ -39,7 +39,7 @@ class BaseDriver(object):
         @type  timeout: int
         @param timeout: (default 3) The number of seconds to wait for a response.
         '''
-        def __init__(self, setid=1, baudrate=9200, devaddr='/dev/ttyUSB0', timeout=3):
+        def __init__(self, setid=1, baudrate=9600, devaddr='/dev/ttyUSB0', timeout=3):
                 self.setid = setid
                 self.serial = serial.Serial(devaddr, baudrate=baudrate, timeout=timeout)
 
