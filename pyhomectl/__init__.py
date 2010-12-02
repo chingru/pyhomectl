@@ -42,7 +42,7 @@ class BaseDriver(object):
         @type  timeout: int
         @param timeout: (default 3) The number of seconds to wait for a response.
         '''
-        def __init__(self, debug=False, setid=1, baudrate=9600, devaddr='/dev/ttyUSB0', timeout=3):
+        def __init__(self, setid=1, baudrate=9600, devaddr='/dev/ttyUSB0', timeout=3, debug=False):
                 self._debug = debug
                 self.setid = setid
                 self.serial = serial.Serial(devaddr, baudrate=baudrate, timeout=timeout)

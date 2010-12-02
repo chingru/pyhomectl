@@ -22,7 +22,7 @@ class LG_LH3000(TVDriver):
         _code_sharpness       = 'kk {0} {1}\r'
         _code_energy_savings  = 'jq {0} {1}\r'
 
-        def __init__(self, debug=False, setid=1, devaddr='/dev/ttyUSB0'):
+        def __init__(self, setid=1, debug=False, devaddr='/dev/ttyUSB0'):
                 TVDriver.__init__(self, debug=debug, setid=setid, baudrate=9600, devaddr=devaddr)
                 self.commands = {
                     'power': self.power,
