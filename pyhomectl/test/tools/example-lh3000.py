@@ -2,7 +2,7 @@ from time import sleep
 import sys
 
 sys.path.append('../../../')
-from pyhomectl.televisions.lg import LG_LH3000 as lgtv
+from pyhomectl.tvs.lg import LG_LH3000 as lgtv
 
 def main():
         ctl = lgtv()

@@ -12,7 +12,7 @@ class FeatureNotAvailableError(Exception):
                 @param feature: the feature which is not available
                 '''
                 self.feature = feature
-                self.msg = "Feature '%s' is not available"
+                self.msg = "Feature '%s' is not available" % feature
                 Exception.__init__(self, self.msg)
 
         def __str__(self):
@@ -25,6 +25,9 @@ class FeatureNotAvailableError(Exception):
 class BaseDriver(object):
         '''
         This base class should be used for all drivers.
+
+        @type  debug: bool
+        @param debug: C{True} if debugging in stdout should be enabled.
 
         @type  setid: int
         @param setid: (default 1) the set id for the equipment (most equipment 
@@ -39,7 +42,8 @@ class BaseDriver(object):
         @type  timeout: int
         @param timeout: (default 3) The number of seconds to wait for a response.
         '''
-        def __init__(self, setid=1, baudrate=9600, devaddr='/dev/ttyUSB0', timeout=3):
+        def __init__(self, debug=False, setid=1, baudrate=9600, devaddr='/dev/ttyUSB0', timeout=3):
+                self._debug = debug
                 self.setid = setid
                 self.serial = serial.Serial(devaddr, baudrate=baudrate, timeout=timeout)
 
@@ -63,7 +67,13 @@ class BaseDriver(object):
                 @type  datalen: int
                 @param datalen: The amount of bytes to expect (or timeout)
                 '''
-                return self.serial.read(datalen)
+                resp = self.serial.read(datalen)
+                self.debug(resp)
+                return resp
+
+        def debug(self, msg):
+            if self._debug: 
+                print "DEBUG[BaseDriver]:",repr(msg)
 
         def close(self):
             '''
