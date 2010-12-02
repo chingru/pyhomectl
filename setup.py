@@ -8,8 +8,8 @@ setup(name='pyhomectl',
         url='http://www.tommed.co.uk'
         packages=[
                 'pyhomectl',
-                'pyhomectl.televisions',
-                'pyhomectl.televisions.lg',
+                'pyhomectl.tvs',
+                'pyhomectl.tvs.lg',
                 'pyhomectl.test',
                 'pyhomectl.test.tools',
                 ],
