@@ -22,4 +22,14 @@ Pre-requisites
  * A null modem cable (aka. reversed/crossed serial RS-232) - about £1 from Amazon
  * GNU/Linux (developed with Ubuntu 10.10)
 
+Test
+----
+
+ 1. Open up pyhomectl/test/example_config.ini and edit it appropriately
+ 2. Now run cd into the pyhomectl module and run cmd.py with arguments:
+        $python cmd.py -vi ./test/example_config.ini tv power on
+        $python cmd.py -vi ./test/example_config.ini tv mute on
+        $python cmd.py -vi ./test/example_config.ini tv mute off
+        $python cmd.py -vi ./test/example_config.ini tv power off
+
 **More details to follow soon!**

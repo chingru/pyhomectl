@@ -1,7 +1,7 @@
 from ConfigParser import ConfigParser
 import sys, os
 from optparse import OptionParser
-sys.path.append('../../../')
+sys.path.append('..')
 import pyhomectl.tvs.lg as tvlg
 
 def todict(namekeys):
